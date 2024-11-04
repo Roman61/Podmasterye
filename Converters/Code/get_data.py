@@ -124,17 +124,18 @@ class TransitionManager:
 
         return found  # Если нашли только один раз, возвращаем True (уникально), иначе False
 
-
-    def save(self, key, path):
+    def save(self, index: str = None, file_path: Path = None, project_path: Path = None):
         """Сохраняет сгенерированные файлы в указанную директорию на основе ключа."""
+        if project_path:
+            pass
         db_classes, cmd_classes, cnf_classes = self.classify_and_generate_files()
 
-        if key == "db":
-            self._generate_db_classes(path, db_classes)
-        elif key == "cmd":
-            self._generate_cmd_classes(path, cmd_classes)
-        elif key == "cnf":
-            self._generate_cnf_classes(path, cnf_classes)
+        if index == "db":
+            self._generate_db_classes(file_path, db_classes)
+        elif index == "cmd":
+            self._generate_cmd_classes(file_path, cmd_classes)
+        elif index == "cnf":
+            self._generate_cnf_classes(file_path, cnf_classes)
 
     def _generate_db_classes(self, db_dir, db_classes):
         """Создает классы для работы с базой данных, сгруппированные по таблицам."""
@@ -233,7 +234,7 @@ class TransitionManager:
 # Пример использования TransitionManager
 if __name__ == "__main__":
     # Путь к файлу state_map.py
-    module_path = Path(r"G:\lesson\Urban_university\diplom_project\doc\code\state_map.py")
+    module_path = Path(r"G:\lesson\diplom_project\doc\code\state_map.py")
     # Путь к директории сохранения классов команд
     cmd_path = Path(r"G:\lesson\Urban_university\diplom_project\doc\code\cmdHelper")
     # Путь к директории сохранения классов для работы с базой данных
@@ -255,6 +256,6 @@ if __name__ == "__main__":
     # Классификация данных и генерация структур классов
     manager.classify_and_generate_files()
     # Создание директорий и сохранение файлов с классами.
-    manager.save(key="db", path=db_engine_path)
-    manager.save(key="cmd", path=cmd_path)
-    manager.save(key="cnf", path=cnf_engine_path)
+    manager.save(project_path=db_engine_path)  # key="db",
+    manager.save(project_path=cmd_path)  # key="cmd",
+    manager.save(project_path=cnf_engine_path)  # key="cnf",
