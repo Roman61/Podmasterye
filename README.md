@@ -8,7 +8,7 @@ Podmasterye — это комплексная система автоматиз�
 Основные возможности
 
 
-![Пример](https://github.com/user-attachments/assets/0a5a1ba8-8df1-4aad-b13b-15c21cb03d3a)
+![пояснение инвертирован](https://github.com/user-attachments/assets/0fefe43c-9bd1-428a-846a-8300315f8bc9)
 
 
 
