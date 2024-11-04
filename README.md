@@ -105,9 +105,9 @@ JSONToMindMapConverter — преобразует JSON файл в ментал�
 
 Генерация переходов состояний:
 
-bash
-
-python main.py generate_transitions /path/to/state_map.py /output/path/ --key=default
+    bash
+    
+    python main.py generate_transitions /path/to/state_map.py /output/path/ --key=default
 
 Конвертация JSON в mind map:
 
