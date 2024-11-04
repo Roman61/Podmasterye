@@ -8,21 +8,21 @@ Podmasterye: Автоматизированная САПР для разрабо
 Podmasterye — это комплексная система автоматизированного проектирования программного обеспечения (САПР) для сквозной автоматизации процессов разработки. Podmasterye предоставляет возможность описывать, проектировать и реализовывать приложения в единой среде, что сокращает время разработки, улучшает структурную целостность проекта и позволяет исключить ошибки на ранних этапах. Система объединяет возможности генерации архитектуры, кода, создания базы данных, а также отладки и улучшения кода с применением ИИ.
 Основные возможности
 
-    Анализ архитектуры проекта: автоматическое построение архитектуры и выявление связей между компонентами.
-    Конвертация UX файлов в UI: генерация интерфейсных файлов из UX-структур.
-    Генерация переходов состояний: создание переходов между состояниями из карт состояний.
-    Преобразование JSON в mind map: автоматический перевод JSON данных в ментальные карты для визуализации.
+Анализ архитектуры проекта: автоматическое построение архитектуры и выявление связей между компонентами.
+Конвертация UX файлов в UI: генерация интерфейсных файлов из UX-структур.
+Генерация переходов состояний: создание переходов между состояниями из карт состояний.
+Преобразование JSON в mind map: автоматический перевод JSON данных в ментальные карты для визуализации.
 
 Быстрый старт
 Установка
 
 Для начала работы склонируйте репозиторий и установите необходимые зависимости:
 
-bash
-
-git clone https://github.com/Roman61/podmasterye.git
-cd podmasterye
-pip install -r requirements.txt
+    bash
+    
+    git clone https://github.com/Roman61/podmasterye.git
+    cd podmasterye
+    pip install -r requirements.txt
 
 Использование
 
@@ -31,77 +31,77 @@ Podmasterye управляется через команды командной 
 
 Анализирует архитектуру проекта и выводит ее структуру:
 
-bash
-
-python main.py analyze G:\lesson\diplom_project --ignore .git .venv
+    bash
+    
+    python main.py analyze G:\lesson\diplom_project --ignore .git .venv
 
 Аргументы:
 
-    project_path — путь к корневой директории проекта.
-    --ignore — список игнорируемых папок и файлов (по умолчанию: .venv, .gitignore, .idea).
+project_path — путь к корневой директории проекта.
+--ignore — список игнорируемых папок и файлов (по умолчанию: .venv, .gitignore, .idea).
 
 Команда для конвертации UX в UI
 
 Конвертирует UX файл (формат .bmpr) в UI компоненты для интерфейса:
 
-bash
-
-python main.py ux_to_ui G:\lesson\diplom_project\doc\Test_one\Test_one.bmpr G:\lesson\diplom_project\doc\Test_one\
+    bash
+    
+    python main.py ux_to_ui G:\lesson\diplom_project\doc\Test_one\Test_one.bmpr G:\lesson\diplom_project\doc\Test_one\
 
 Аргументы:
 
-    ux_path — путь к UX файлу .bmpr.
-    output_path — директория для сохранения сгенерированных UI файлов.
+ux_path — путь к UX файлу .bmpr.
+output_path — директория для сохранения сгенерированных UI файлов.
 
 Команда для генерации переходов из карты состояний
 
 Создает переходы между состояниями на основе карты состояний, используя указанный модуль:
 
-bash
+    bash
 
-python main.py generate_transitions G:\lesson\diplom_project\doc\code\state_map.py G:\lesson\Urban_university\diplom_project\doc\code\cmdHelper --key=default
+    python main.py generate_transitions G:\lesson\diplom_project\doc\code\state_map.py G:\lesson\Urban_university\diplom_project\doc\code\cmdHelper --key=default
 
 Аргументы:
 
-    module_path — путь к файлу state_map.py.
-    output_path — папка для сохранения файлов сгенерированных классов.
-    --key — ключ для генерации (по умолчанию: default).
+module_path — путь к файлу state_map.py.
+output_path — папка для сохранения файлов сгенерированных классов.
+--key — ключ для генерации (по умолчанию: default).
 
 Команда для конвертации JSON в mind map
 
 Преобразует JSON данные в формат ментальной карты, совместимый с Freeplane:
 
-bash
+    bash
 
-python main.py json_to_mm G:\lesson\diplom_project\doc\components.json G:\lesson\diplom_project\doc\mind_map.mm
+    python main.py json_to_mm G:\lesson\diplom_project\doc\components.json G:\lesson\diplom_project\doc\mind_map.mm
 
 Аргументы:
 
-    json_path — путь к JSON файлу.
-    output_path — путь для сохранения mind map файла.
+json_path — путь к JSON файлу.
+output_path — путь для сохранения mind map файла.
 
 Основные классы и их функции
 
-    ProjectAnalyzer — анализирует архитектуру проекта и строит иерархическую структуру.
-    UXConverter — конвертирует UX макеты в UI компоненты, совместимые с Qt Designer.
-    TransitionManager — управляет состояниями и переходами, генерируя структуры классов для работы с состояниями.
-    JSONToMindMapConverter — преобразует JSON файл в ментальную карту для визуализации и анализа с помощью Freeplane.
+ProjectAnalyzer — анализирует архитектуру проекта и строит иерархическую структуру.
+UXConverter — конвертирует UX макеты в UI компоненты, совместимые с Qt Designer.
+TransitionManager — управляет состояниями и переходами, генерируя структуры классов для работы с состояниями.
+JSONToMindMapConverter — преобразует JSON файл в ментальную карту для визуализации и анализа с помощью Freeplane.
 
 Примеры использования
 
 Вот несколько примеров для начала работы с Podmasterye:
 
-    Анализ архитектуры:
+Анализ архитектуры:
 
     bash
-
-python main.py analyze /path/to/your/project --ignore .git .venv
+    
+    python main.py analyze /path/to/your/project --ignore .git .venv
 
 Конвертация UX в UI:
 
-bash
+    bash
 
-python main.py ux_to_ui /path/to/ux/file.bmpr /path/to/save/ui/
+    python main.py ux_to_ui /path/to/ux/file.bmpr /path/to/save/ui/
 
 Генерация переходов состояний:
 
@@ -117,9 +117,9 @@ bash
 
 Задачи проекта
 
-    Интеграция этапов разработки — создание платформы для объединения описания идеи, формирования ментальных карт и генерации кода.
-    Генерация структуры базы данных — автоматическое создание ORM моделей и схем баз данных.
-    Поддержка различных форматов — работа с ментальными картами и UX/UI макетами для сохранения данных на всех этапах.
+Интеграция этапов разработки — создание платформы для объединения описания идеи, формирования ментальных карт и генерации кода.
+Генерация структуры базы данных — автоматическое создание ORM моделей и схем баз данных.
+Поддержка различных форматов — работа с ментальными картами и UX/UI макетами для сохранения данных на всех этапах.
 
 Вклад
 
