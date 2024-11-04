@@ -1,5 +1,4 @@
-
-#Подмастерье
+<h1 align="center">Подмастерье <a href="https://daniilshat.ru/" target="_blank">Daniil</a> 
 
 
 Podmasterye: Автоматизированная САПР для разработки ПО
