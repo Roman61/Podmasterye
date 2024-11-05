@@ -56,7 +56,9 @@ project_path — путь к корневой директории проект�
     
     python main.py ux_to_ui G:\lesson\diplom_project\doc\Test_one\Test_one.bmpr G:\lesson\diplom_project\doc\Test_one\
 
+Исходное изображение:
 <img src="https://github.com/user-attachments/assets/affb63b8-a9ab-478e-a757-26f6e1509ecc" width="533" height="266" />
+Результат конвертации:
 <img src="https://github.com/user-attachments/assets/cab03097-1b5a-49b3-9c74-f238ede4b8cf" width="533" height="266" />
 
 
