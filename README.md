@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-![Обложка](https://github.com/user-attachments/assets/3437d455-cc65-4fd7-a95e-b1a339404fe1)
+<img src="https://github.com/user-attachments/assets/3437d455-cc65-4fd7-a95e-b1a339404fe1" />
 </div>
 
 <h1 align="center">Подмастерье 
