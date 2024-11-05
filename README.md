@@ -56,6 +56,10 @@ project_path — путь к корневой директории проект�
     
     python main.py ux_to_ui G:\lesson\diplom_project\doc\Test_one\Test_one.bmpr G:\lesson\diplom_project\doc\Test_one\
 
+![Доска с заметками UX](https://github.com/user-attachments/assets/affb63b8-a9ab-478e-a757-26f6e1509ecc)
+![Доска с заметками UI](https://github.com/user-attachments/assets/cab03097-1b5a-49b3-9c74-f238ede4b8cf)
+
+
 Аргументы:
 
 ux_path — путь к UX файлу .bmpr.
