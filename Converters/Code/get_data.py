@@ -24,30 +24,32 @@ class TransitionManager:
         save(key, path): Сохраняет сгенерированные файлы в указанную директорию.
     """
 
-    def __init__(self, module_path=None):
+    def __init__(self, name="state_map", module_paths=None):
         """Инициализирует TransitionManager и загружает state_map, если указан путь."""
         self.states = []
         self.transitions = []
+        self.paths = []
         self.screen = None
+        self.name_keys = ['screen',]
 
-        if module_path:
-            self.load_state_map(module_path)
+        if module_paths:
+            self.load_state_map(module_paths, name)
 
-    def load_state_map(self, module_path):
+    def load_state_map(self, module_paths, name):
         """Загружает модуль state_map из указанного пути и извлекает состояния и переходы."""
-        self.load_missing_dependencies(module_path)
-        module_dir = str(Path(module_path).parent)
+        self.load_missing_dependencies(module_paths)
+        module_dir = str(Path(module_paths).parent)
         sys.path.insert(0, module_dir)
 
         try:
-            spec = importlib.util.spec_from_file_location("state_map", module_path)
+            spec = importlib.util.spec_from_file_location(name, module_paths)
             state_map = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(state_map)
 
             self.states = [item['name'] for item in state_map.states]
 
             self.transitions = state_map.transitions
-            self.screen = getattr(state_map, 'screen', None)
+            self.screen = getattr(state_map, self.name_keys[0], None)
 
         except ModuleNotFoundError as e:
             print(f"Ошибка импорта: {e}")
@@ -55,20 +57,23 @@ class TransitionManager:
         finally:
             sys.path.pop(0)
 
-    def load_missing_dependencies(self, module_path):
+    def load_missing_dependencies(self, module_paths):
         """Находит и подгружает недостающие модули, указанные в импортах файла."""
-        module_dir = Path(module_path).parent
+        module_dir = Path(module_paths).parent
 
-        with open(module_path, 'r', encoding='utf-8') as f:
+        with open(module_paths, 'r', encoding='utf-8') as f:
             content = f.read()
 
         imports = re.findall(r'from (\S+) import', content)
 
         for imp in imports:
             imp_path = module_dir / Path(imp.replace('.', '/'))
+            imp_path_file = imp_path.with_suffix('.py')
+            self.paths.append(imp_path_file)
             if imp_path.exists() and imp_path.is_dir():
                 sys.path.insert(0, str(module_dir.parent))
                 break
+
 
     def classify_and_generate_files(self):
         """Классифицирует данные и генерирует структуру файлов на основе состояний."""
@@ -234,13 +239,13 @@ class TransitionManager:
 # Пример использования TransitionManager
 if __name__ == "__main__":
     # Путь к файлу state_map.py
-    module_path = Path(r"G:\lesson\diplom_project\doc\code\state_map.py")
+    module_path = Path(r"G:\Project\!!!!!!!!!tool_helper\src\Vending\Vending\StateMachine\state_map.py")
     # Путь к директории сохранения классов команд
-    cmd_path = Path(r"G:\lesson\Urban_university\diplom_project\doc\code\cmdHelper")
+    cmd_path = Path(r"G:\Project\!!!!!!!!!tool_helper\src\Vending\Vending\Controller")
     # Путь к директории сохранения классов для работы с базой данных
-    db_engine_path = Path(r"G:\lesson\Urban_university\diplom_project\doc\code\dbEngine")
+    db_engine_path = Path(r"G:\Project\!!!!!!!!!tool_helper\src\Vending\Vending\dbEngine")
     # Путь к директории сохранения классов для работы с конфигурацией
-    cnf_engine_path = Path(r"G:\lesson\Urban_university\diplom_project\doc\code\cnfEngine")
+    cnf_engine_path = Path(r"G:\Project\!!!!!!!!!tool_helper\src\Vending\Vending\Core")
     # Создание экземпляра TransitionManager с загрузкой данных из state_map
     manager = TransitionManager(module_path=module_path)
 
