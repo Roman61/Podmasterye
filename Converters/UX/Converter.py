@@ -588,7 +588,7 @@ class UXElement:
 # Пример использования
 if __name__ == "__main__":
     # Укажите путь к ux файлу
-    db_path = 'G:\\lesson\\diplom_project\\doc\\Test_one\\Test_one.bmpr'
+    db_path = 'G:\\Project\\!!!!!!!!!tool_helper\\Doc\\UX Helper.bmpr'
     # Путь к сохранения ui файлу
     xml_file_path = "G:\\lesson\\diplom_project\\doc\\Test_one\\"
 
